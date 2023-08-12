@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <title>Ajax Document</title>
+</head>
+<body>
+    <h1>Animal World</h1>
+
+    <p><h2>Cats</h2></p>
+    <img style="height: 500px; width: 800px;" src="./Planet9_3840x2160.jpg" alt="planet">
+
+    <div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex reiciendis nihil ullam labore mollitia, soluta, 
+        vel doloremque adipisci dolore ad, pariatur exercitationem 
+        eius dolorum ducimus repellendus autem eligendi voluptatem natus.</p>
+    </div>
+
+    <button id="but_1">More information</button>
+
+    <div id="div1"></div>
+    <script>
+        $(document).ready(function(){
+            $("button").click(function(){
+                $.ajax('moreInfo.html',{
+                    succes:function(result){
+                        $('#div1').append(result);
+                        R('#button1').hide();
+                    }
+                });
+            });
+        });
+    </script>
+
+    <!--Load method-->
+    <div id="div2"></div>
+    <script>
+        $(document).ready(function(){
+            $('#div2').load('demo_test.html', function(responce, statusTxT, xhr){
+                if(statusTxT == "success")
+                alert("Content load successfully");
+                if(statusTxT == "error")
+                alert("Error: "+xhr.status + xhr.statusTxT);
+            });
+        });
+    </script>
+</body>
+</html>
